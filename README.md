@@ -31,11 +31,11 @@ s.listen(5)
 c,addr=s.accept()
 address={"165.165.80.80":"6A:08:AA:C2","165.165.79.1":"8A:BC:E3:FA"};
 while True:
-ip=c.recv(1024).decode()
-try:
-c.send(address[ip].encode())
-except KeyError:
-c.send("Not Found".encode())
+ ip=c.recv(1024).decode()
+ try:
+ c.send(address[ip].encode())
+ except KeyError:
+ c.send("Not Found".encode())
 ```
 ```
 SERVER:
@@ -43,9 +43,9 @@ import socket
 s=socket.socket()
 s.connect(('localhost',8000))
 while True:
-ip=input("Enter logical Address : ")
-s.send(ip.encode())
-print("MAC Address",s.recv(1024).decode())
+ ip=input("Enter logical Address : ")
+ s.send(ip.encode())
+ print("MAC Address",s.recv(1024).decode())
 ```
 OUTPUT:
 ![image](https://github.com/VaishaliBalamurugan22008813/EX-4/assets/119390134/7ee0eff2-8fbf-4b13-b24b-5183d419849f)
